@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate{
     
     
     
-    @IBOutlet weak var nameView: UITextField!
+    @IBOutlet weak var nameField: UITextField!
+    
     @IBOutlet weak var lyricsView: UITextView!
     
     
@@ -23,33 +24,34 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        nameField.delegate = self
     }
     
     
     
     @IBAction func reset(_ sender: Any) {
-        nameView.text?.removeAll()
+        nameField.text?.removeAll()
         lyricsView.text.removeAll()
-        nameView.autocapitalizationType = .words
+        nameField.autocapitalizationType = .words
     }
     
     
     @IBAction func displayLyrics(_ sender: Any) {
-        if let name = nameView.text {
+        if let name = nameField.text {
             lyricsView.text = lyricsForName(lyricsTemplate: bananaFanaTemplate, fullName: name)
         }
     }
-}
 
-extension ViewController: UITextFieldDelegate {
+
+
     
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        textField.resignFirstResponder()
-        return false
-        
+    
+    textField.resignFirstResponder()
+    return false
     }
-}
+
     
     let bananaFanaTemplate = [
         "<FULL_NAME>, <FULL_NAME>, Bo B<SHORT_NAME>",
@@ -80,4 +82,4 @@ extension ViewController: UITextFieldDelegate {
     }
 
 
-
+}

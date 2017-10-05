@@ -75,7 +75,7 @@
                     </view>
                     <connections>
                         <outlet property="lyricsView" destination="Vd7-ek-Fub" id="hN6-Qt-Y7C"/>
-                        <outlet property="nameView" destination="NSc-6g-flm" id="gOK-hP-8rU"/>
+                        <outlet property="nameField" destination="NSc-6g-flm" id="P25-yW-KTq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
